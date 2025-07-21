@@ -58,13 +58,15 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
         "Tanjung Benoa",
         "Uluwatu Temple",
         "GWK Cultural Park",
-        "Ubud-Sukawati",
+        "Ubud",
+        "Sukawati",
         "Taman Beji",
         "Sangeh Monkey Forest",
-        "ATV Adventure at Ubud",
+        "Ubud ATV Adventure",
         "Desa Penglipuran",
         "Goa Raja Waterfall",
-        "Bali Zoo-Kuta"
+        "Bali Zoo",
+        "Kuta"
       ],
       highlights: [
         "Private temple ceremonies",
@@ -108,7 +110,8 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
         "Tegalalang Rice Terraces",
         "Ubud Cultural Center",
         "Sangeh Monkey Forest",
-        "Bali Zoo-Kuta",
+        "Bali Zoo",
+        "Kuta",
         "Tanjung Benoa",
         "Uluwatu Temple",
         "GWK Cultural Park"
