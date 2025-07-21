@@ -1,11 +1,14 @@
 import React from 'react';
 import { Clock, Users, MapPin, DollarSign, Star, Crown, Gem } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface PackageProps {
   onBookNow: (packageData: any) => void;
 }
 
 const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
+  const { t } = useLanguage();
+
   const packages = [
     {
       id: 1,

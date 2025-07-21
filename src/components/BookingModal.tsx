@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Calendar, User, Mail, Phone, CreditCard, Building, Check } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface BookingModalProps {
   package: any;
@@ -7,6 +8,7 @@ interface BookingModalProps {
 }
 
 const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) => {
+  const { t } = useLanguage();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     firstName: '',
