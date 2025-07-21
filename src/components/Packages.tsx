@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, Users, MapPin, DollarSign, Star } from 'lucide-react';
+import { Clock, Users, MapPin, DollarSign, Star, Crown, Gem } from 'lucide-react';
 
 interface PackageProps {
   onBookNow: (packageData: any) => void;
@@ -11,9 +11,46 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
       id: 1,
       name: "Island Tapestry",
       duration: "10 Days 9 Nights",
-      price: 2149,
       rating: 4.9,
       image: "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      tiers: [
+        {
+          name: "Economy",
+          price: 1973,
+          icon: null,
+          features: [
+            "Standard accommodation",
+            "Group tours",
+            "Basic meals included",
+            "Shared transportation"
+          ]
+        },
+        {
+          name: "Standard",
+          price: 2149,
+          icon: <Star className="h-4 w-4" />,
+          features: [
+            "Superior accommodation",
+            "Semi-private tours",
+            "All meals included",
+            "Private transportation",
+            "Welcome drink"
+          ]
+        },
+        {
+          name: "Luxury",
+          price: 3619,
+          icon: <Crown className="h-4 w-4" />,
+          features: [
+            "Luxury resort accommodation",
+            "Private tours with guide",
+            "Fine dining experiences",
+            "Premium transportation",
+            "Spa treatments included",
+            "Professional photography"
+          ]
+        }
+      ],
       destinations: [
         "Tanjung Benoa",
         "Uluwatu Temple",
@@ -37,9 +74,33 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
       id: 2,
       name: "Inselharmoni",
       duration: "7 Days 6 Nights",
-      price: 1502,
       rating: 4.8,
-      image: "https://images.pexels.com/photos/2474631/pexels-photo-2474631.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/2166643/pexels-photo-2166643.jpeg",
+      tiers: [
+        {
+          name: "Economy",
+          price: 1199,
+          icon: null,
+          features: [
+            "Standard accommodation",
+            "Group tours",
+            "Basic meals included",
+            "Shared transportation"
+          ]
+        },
+        {
+          name: "Standard",
+          price: 1502,
+          icon: <Star className="h-4 w-4" />,
+          features: [
+            "Superior accommodation",
+            "Semi-private tours",
+            "All meals included",
+            "Private transportation",
+            "Romantic dinner"
+          ]
+        },
+      ],
       destinations: [
         "Tegalalang Rice Terraces",
         "Ubud Cultural Center",
@@ -57,6 +118,18 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
       ]
     }
   ];
+
+  const [selectedTiers, setSelectedTiers] = React.useState<{[key: number]: number}>({
+    1: 1, // Default to Standard tier (index 1)
+    2: 1
+  });
+
+  const handleTierChange = (packageId: number, tierIndex: number) => {
+    setSelectedTiers(prev => ({
+      ...prev,
+      [packageId]: tierIndex
+    }));
+  };
 
   return (
     <section id="packages" className="py-20 bg-gray-50">
@@ -87,22 +160,56 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
               </div>
 
               <div className="p-8">
-                <div className="flex justify-between items-start mb-4">
+                <div className="mb-6">
                   <h3 className="text-2xl font-bold text-gray-900">{pkg.name}</h3>
-                  <div className="text-right">
-                    <div className="text-3xl font-bold text-emerald-600">${pkg.price}</div>
-                    <div className="text-sm text-gray-500">per couple</div>
+                  <div className="flex items-center space-x-6 mt-2 text-gray-600">
+                    <div className="flex items-center space-x-2">
+                      <Clock className="h-5 w-5" />
+                      <span className="text-sm">{pkg.duration}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Users className="h-5 w-5" />
+                      <span className="text-sm">2 People</span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-6 mb-6 text-gray-600">
-                  <div className="flex items-center space-x-2">
-                    <Clock className="h-5 w-5" />
-                    <span className="text-sm">{pkg.duration}</span>
+                {/* Tier Selection */}
+                <div className="mb-6">
+                  <h4 className="font-semibold text-gray-900 mb-3">Choose Your Experience</h4>
+                  <div className="grid grid-cols-3 gap-2">
+                    {pkg.tiers.map((tier, index) => (
+                      <button
+                        key={index}
+                        onClick={() => handleTierChange(pkg.id, index)}
+                        className={`p-3 rounded-lg border-2 transition-all duration-200 ${
+                          selectedTiers[pkg.id] === index
+                            ? 'border-emerald-500 bg-emerald-50'
+                            : 'border-gray-200 hover:border-gray-300'
+                        }`}
+                      >
+                        <div className="flex items-center justify-center mb-1">
+                          {tier.icon && <span className="text-emerald-600">{tier.icon}</span>}
+                        </div>
+                        <div className="text-sm font-medium text-gray-900">{tier.name}</div>
+                        <div className="text-lg font-bold text-emerald-600">${tier.price}</div>
+                      </button>
+                    ))}
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Users className="h-5 w-5" />
-                    <span className="text-sm">2 People</span>
+                </div>
+
+                {/* Selected Tier Features */}
+                <div className="mb-6">
+                  <h4 className="font-semibold text-gray-900 mb-3">
+                    {pkg.tiers[selectedTiers[pkg.id]].name} Features
+                  </h4>
+                  <div className="space-y-2">
+                    {pkg.tiers[selectedTiers[pkg.id]].features.map((feature, index) => (
+                      <div key={index} className="text-sm text-gray-600 flex items-center">
+                        <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></div>
+                        {feature}
+                      </div>
+                    ))}
                   </div>
                 </div>
 
@@ -121,20 +228,12 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
                   </div>
                 </div>
 
-                <div className="mb-8">
-                  <h4 className="font-semibold text-gray-900 mb-3">Package Highlights</h4>
-                  <div className="space-y-2">
-                    {pkg.highlights.map((highlight, index) => (
-                      <div key={index} className="text-sm text-gray-600 flex items-center">
-                        <div className="w-2 h-2 bg-cyan-400 rounded-full mr-2"></div>
-                        {highlight}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
                 <button 
-                  onClick={() => onBookNow(pkg)}
+                  onClick={() => onBookNow({
+                    ...pkg,
+                    selectedTier: pkg.tiers[selectedTiers[pkg.id]],
+                    price: pkg.tiers[selectedTiers[pkg.id]].price
+                  })}
                   className="w-full bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   Book Now

@@ -276,11 +276,15 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span>Package: {pkg.name}</span>
-                    <span>${pkg.price}</span>
+                    <span>{pkg.selectedTier?.name || 'Standard'}</span>
                   </div>
                   <div className="flex justify-between">
+                    <span>Price: ${pkg.price}</span>
                     <span>Duration: {pkg.duration}</span>
-                    <span>2 Guests</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Guests: 2 People</span>
+                    <span></span>
                   </div>
                   <div className="border-t pt-2 flex justify-between font-semibold">
                     <span>Total Amount</span>
