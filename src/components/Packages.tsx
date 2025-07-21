@@ -18,39 +18,39 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
       image: "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       tiers: [
         {
-          name: "Economy",
+          name: t('economy'),
           price: 1973,
           icon: null,
           features: [
-            "Standard accommodation",
-            "Group tours",
-            "Basic meals included",
-            "Shared transportation"
+            t('standardAccommodation'),
+            t('groupTours'),
+            t('basicMeals'),
+            t('sharedTransportation')
           ]
         },
         {
-          name: "Standard",
-          price: 2149,
+          name: t('standard'),
+          price: 2150,
           icon: <Star className="h-4 w-4" />,
           features: [
-            "Superior accommodation",
-            "Semi-private tours",
-            "All meals included",
-            "Private transportation",
-            "Welcome drink"
+            t('superiorAccommodation'),
+            t('semiPrivateTours'),
+            t('allMeals'),
+            t('privateTransportation'),
+            t('welcomeDrink')
           ]
         },
         {
-          name: "Luxury",
+          name: t('luxury'),
           price: 3619,
           icon: <Crown className="h-4 w-4" />,
           features: [
-            "Luxury resort accommodation",
-            "Private tours with guide",
-            "Fine dining experiences",
-            "Premium transportation",
-            "Spa treatments included",
-            "Professional photography"
+            t('luxuryResort'),
+            t('privateTours'),
+            t('fineDining'),
+            t('premiumTransportation'),
+            t('spaIncluded'),
+            t('photography')
           ]
         }
       ],
@@ -78,29 +78,29 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
       name: "Inselharmoni",
       duration: "7 Days 6 Nights",
       rating: 4.8,
-      image: "https://images.pexels.com/photos/2166643/pexels-photo-2166643.jpeg",
+      image: "https://images.pexels.com/photos/2474631/pexels-photo-2474631.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
       tiers: [
         {
-          name: "Economy",
-          price: 1199,
+          name: t('economy'),
+          price: 1335,
           icon: null,
           features: [
-            "Standard accommodation",
-            "Group tours",
-            "Basic meals included",
-            "Shared transportation"
+            t('standardAccommodation'),
+            t('groupTours'),
+            t('basicMeals'),
+            t('sharedTransportation')
           ]
         },
         {
-          name: "Standard",
-          price: 1502,
+          name: t('standard'),
+          price: 1503,
           icon: <Star className="h-4 w-4" />,
           features: [
-            "Superior accommodation",
-            "Semi-private tours",
-            "All meals included",
-            "Private transportation",
-            "Romantic dinner"
+            t('superiorAccommodation'),
+            t('semiPrivateTours'),
+            t('allMeals'),
+            t('privateTransportation'),
+            t('romanticDinner')
           ]
         },
       ],
@@ -139,11 +139,10 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Exclusive Couple Packages
+            {t('exclusivePackages')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Carefully curated experiences designed for couples seeking romance, adventure, 
-            and cultural immersion in beautiful Bali.
+            {t('packagesDescription')}
           </p>
         </div>
 
@@ -172,14 +171,14 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
                     </div>
                     <div className="flex items-center space-x-2">
                       <Users className="h-5 w-5" />
-                      <span className="text-sm">2 People</span>
+                      <span className="text-sm">{t('people')}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Tier Selection */}
                 <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-3">Choose Your Experience</h4>
+                  <h4 className="font-semibold text-gray-900 mb-3">{t('chooseExperience')}</h4>
                   <div className="grid grid-cols-3 gap-2">
                     {pkg.tiers.map((tier, index) => (
                       <button
@@ -204,7 +203,7 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
                 {/* Selected Tier Features */}
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-900 mb-3">
-                    {pkg.tiers[selectedTiers[pkg.id]].name} Features
+                    {pkg.tiers[selectedTiers[pkg.id]].name} {t('features')}
                   </h4>
                   <div className="space-y-2">
                     {pkg.tiers[selectedTiers[pkg.id]].features.map((feature, index) => (
@@ -219,7 +218,7 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
                     <MapPin className="h-5 w-5 mr-2 text-emerald-600" />
-                    Destinations
+                    {t('destinations')}
                   </h4>
                   <div className="grid grid-cols-2 gap-2">
                     {pkg.destinations.map((dest, index) => (
@@ -239,7 +238,7 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
                   })}
                   className="w-full bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
-                  Book Now
+                  {t('bookNow')}
                 </button>
               </div>
             </div>

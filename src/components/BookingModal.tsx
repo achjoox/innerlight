@@ -48,8 +48,8 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Book {pkg.name}</h2>
-            <p className="text-gray-600">{pkg.duration} • ${pkg.price} per couple</p>
+            <h2 className="text-2xl font-bold text-gray-900">{t('bookPackage')} {pkg.name}</h2>
+            <p className="text-gray-600">{pkg.duration} • ${pkg.price} {t('perCouple')}</p>
           </div>
           <button 
             onClick={onClose}
@@ -77,10 +77,10 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
               ))}
             </div>
             <div className="flex justify-between text-xs text-gray-500">
-              <span>Personal Info</span>
-              <span>Travel Dates</span>
-              <span>Payment</span>
-              <span>Confirmation</span>
+              <span>{t('personalInfo')}</span>
+              <span>{t('travelDates')}</span>
+              <span>{t('payment')}</span>
+              <span>{t('confirmation')}</span>
             </div>
           </div>
 
@@ -89,12 +89,12 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-gray-900 flex items-center">
                 <User className="h-5 w-5 mr-2 text-emerald-600" />
-                Personal Information
+                {t('personalInformation')}
               </h3>
               
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t('firstName')}</label>
                   <input
                     type="text"
                     name="firstName"
@@ -105,7 +105,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t('lastName')}</label>
                   <input
                     type="text"
                     name="lastName"
@@ -119,7 +119,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t('email')}</label>
                   <input
                     type="email"
                     name="email"
@@ -130,7 +130,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t('phoneNumber')}</label>
                   <input
                     type="tel"
                     name="phone"
@@ -143,10 +143,10 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
               </div>
 
               <div className="border-t pt-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-4">Partner Information</h4>
+                <h4 className="text-lg font-medium text-gray-900 mb-4">{t('partnerInformation')}</h4>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Partner First Name</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">{t('partnerFirstName')}</label>
                     <input
                       type="text"
                       name="partnerFirstName"
@@ -157,7 +157,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Partner Last Name</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">{t('partnerLastName')}</label>
                     <input
                       type="text"
                       name="partnerLastName"
@@ -177,12 +177,12 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-gray-900 flex items-center">
                 <Calendar className="h-5 w-5 mr-2 text-emerald-600" />
-                Travel Dates
+                {t('travelDates')}
               </h3>
               
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Check-in Date</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t('checkInDate')}</label>
                   <input
                     type="date"
                     name="checkInDate"
@@ -194,7 +194,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Check-out Date</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t('checkOutDate')}</label>
                   <input
                     type="date"
                     name="checkOutDate"
@@ -208,14 +208,14 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Special Requests (Optional)</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">{t('specialRequests')}</label>
                 <textarea
                   name="specialRequests"
                   value={formData.specialRequests}
                   onChange={handleInputChange}
                   rows={4}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                  placeholder="Any special dietary requirements, accessibility needs, or celebration occasions..."
+                  placeholder={t('specialRequestsPlaceholder')}
                 />
               </div>
             </div>
@@ -226,7 +226,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-gray-900 flex items-center">
                 <CreditCard className="h-5 w-5 mr-2 text-emerald-600" />
-                Payment Method
+                {t('paymentMethod')}
               </h3>
               
               <div className="space-y-4">
@@ -246,7 +246,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
                       </div>
                       <div>
                         <div className="font-medium">PayPal</div>
-                        <div className="text-sm text-gray-600">Pay securely with your PayPal account</div>
+                        <div className="text-sm text-gray-600">{t('paySecurely')}</div>
                       </div>
                     </div>
                   </label>
@@ -265,8 +265,8 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
                     <div className="flex items-center">
                       <Building className="h-8 w-8 text-gray-600 mr-3" />
                       <div>
-                        <div className="font-medium">Bank Transfer</div>
-                        <div className="text-sm text-gray-600">Direct bank transfer with payment instructions</div>
+                        <div className="font-medium">{t('bankTransfer')}</div>
+                        <div className="text-sm text-gray-600">{t('bankTransferDesc')}</div>
                       </div>
                     </div>
                   </label>
@@ -274,22 +274,22 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
               </div>
 
               <div className="bg-gray-50 rounded-lg p-4">
-                <h4 className="font-medium text-gray-900 mb-2">Booking Summary</h4>
+                <h4 className="font-medium text-gray-900 mb-2">{t('bookingSummary')}</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span>Package: {pkg.name}</span>
+                    <span>{t('package')}: {pkg.name}</span>
                     <span>{pkg.selectedTier?.name || 'Standard'}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Price: ${pkg.price}</span>
+                    <span>{t('price')}: ${pkg.price}</span>
                     <span>Duration: {pkg.duration}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Guests: 2 People</span>
+                    <span>{t('guests')}: {t('people')}</span>
                     <span></span>
                   </div>
                   <div className="border-t pt-2 flex justify-between font-semibold">
-                    <span>Total Amount</span>
+                    <span>{t('totalAmount')}</span>
                     <span>${pkg.price}</span>
                   </div>
                 </div>
@@ -303,13 +303,13 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
                 <Check className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">Booking Confirmed!</h3>
+              <h3 className="text-2xl font-bold text-gray-900">{t('bookingConfirmed')}</h3>
               <p className="text-gray-600">
-                Thank you for booking with BaliBliss. We've sent a confirmation email to {formData.email}.
-                Our team will contact you within 24 hours with detailed itinerary and payment instructions.
+                {t('confirmationMessage')} {formData.email}.
+                {t('contactMessage')}
               </p>
               <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
-                <p className="text-emerald-800 font-medium">Booking Reference: #BB{Date.now()}</p>
+                <p className="text-emerald-800 font-medium">{t('bookingReference')}: #BB{Date.now()}</p>
               </div>
             </div>
           )}
@@ -326,13 +326,13 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
-                Previous
+                {t('previous')}
               </button>
               <button
                 onClick={step === 3 ? handleSubmit : handleNext}
                 className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors"
               >
-                {step === 3 ? 'Confirm Booking' : 'Next'}
+                {step === 3 ? t('confirmBooking') : t('next')}
               </button>
             </div>
           )}
@@ -343,7 +343,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
                 onClick={onClose}
                 className="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors"
               >
-                Close
+                {t('close')}
               </button>
             </div>
           )}

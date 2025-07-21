@@ -99,6 +99,7 @@ const translations = {
     confirmBooking: 'Confirm Booking',
     close: 'Close'
   },
+
   id: {
     // Header
     home: 'Beranda',
