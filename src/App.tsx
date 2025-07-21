@@ -3,7 +3,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Packages from './components/Packages';
-import BookingModal from './components/BookingModal';
+import BookingModal from './components/BookingModel';
 import Footer from './components/Footer';
 
 function App() {
