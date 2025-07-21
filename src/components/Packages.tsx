@@ -78,7 +78,7 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
       name: "Inselharmoni",
       duration: "7 Days 6 Nights",
       rating: 4.8,
-      image: "https://images.pexels.com/photos/2474631/pexels-photo-2474631.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/2166643/pexels-photo-2166643.jpeg",
       tiers: [
         {
           name: t('economy'),
