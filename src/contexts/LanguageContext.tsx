@@ -33,6 +33,7 @@ const translations = {
     features: 'Features',
     destinations: 'Destinations',
     bookNow: 'Book Now',
+    dailyItinerary: 'Daily Itinerary',
     
     // Package Features
     standardAccommodation: 'Standard accommodation',
@@ -97,9 +98,44 @@ const translations = {
     previous: 'Previous',
     next: 'Next',
     confirmBooking: 'Confirm Booking',
-    close: 'Close'
+    close: 'Close',
+    
+    // Destinations
+    tanjungBenoa: 'Tanjung Benoa',
+    uluwatuTemple: 'Uluwatu Temple',
+    gwkCulturalPark: 'GWK Cultural Park',
+    ubud: 'Ubud',
+    sukawati: 'Sukawati',
+    tamanBeji: 'Taman Beji',
+    sangehMonkeyForest: 'Sangeh Monkey Forest',
+    atvAdventureUbud: 'ATV Adventure at Ubud',
+    desaPenglipuran: 'Desa Penglipuran',
+    goaRajaWaterfall: 'Goa Raja Waterfall',
+    baliZooKuta: 'Bali Zoo-Kuta',
+    tegalalangRiceTerraces: 'Tegalalang Rice Terraces',
+    ubudCulturalCenter: 'Ubud Cultural Center',
+    
+    // Itinerary Activities
+    arrivalTanjungBenoa: 'Arrival & Tanjung Benoa Water Sports',
+    uluwatuCultural: 'Uluwatu Temple & Cultural Experience',
+    gwkShopping: 'GWK Cultural Park & Shopping',
+    ubudImmersion: 'Ubud Cultural Immersion',
+    tamanBejiNature: 'Taman Beji & Nature Exploration',
+    sangehAdventure: 'Sangeh Monkey Forest Adventure',
+    atvVillage: 'ATV Adventure & Village Life',
+    penglipuranVillage: 'Desa Penglipuran Traditional Village',
+    waterfallZoo: 'Goa Raja Waterfall & Bali Zoo',
+    departureDay: 'Departure Day',
+    tegalalangArrival: 'Arrival & Tegalalang Rice Terraces',
+    ubudCulturalExp: 'Ubud Cultural Center Experience',
+    sangehZoo: 'Sangeh & Bali Zoo Adventure',
+    tanjungBenoaWater: 'Tanjung Benoa Water Sports',
+    uluwatuSunset: 'Uluwatu Temple & Sunset',
+    gwkSpa: 'GWK Cultural Park & Spa',
+    
+    // Tip
+    optionalTip: 'Optional tip: $3 per person to support local guides and staff'
   },
-
   id: {
     // Header
     home: 'Beranda',
@@ -124,6 +160,7 @@ const translations = {
     features: 'Fitur',
     destinations: 'Destinasi',
     bookNow: 'Pesan Sekarang',
+    dailyItinerary: 'Itinerary Harian',
     
     // Package Features
     standardAccommodation: 'Akomodasi standar',
@@ -188,7 +225,43 @@ const translations = {
     previous: 'Sebelumnya',
     next: 'Selanjutnya',
     confirmBooking: 'Konfirmasi Pemesanan',
-    close: 'Tutup'
+    close: 'Tutup',
+    
+    // Destinations
+    tanjungBenoa: 'Tanjung Benoa',
+    uluwatuTemple: 'Pura Uluwatu',
+    gwkCulturalPark: 'Taman Budaya GWK',
+    ubud: 'Ubud',
+    sukawati: 'Sukawati',
+    tamanBeji: 'Taman Beji',
+    sangehMonkeyForest: 'Hutan Monyet Sangeh',
+    atvAdventureUbud: 'Petualangan ATV di Ubud',
+    desaPenglipuran: 'Desa Penglipuran',
+    goaRajaWaterfall: 'Air Terjun Goa Raja',
+    baliZooKuta: 'Kebun Binatang Bali-Kuta',
+    tegalalangRiceTerraces: 'Terasering Tegalalang',
+    ubudCulturalCenter: 'Pusat Budaya Ubud',
+    
+    // Itinerary Activities
+    arrivalTanjungBenoa: 'Kedatangan & Olahraga Air Tanjung Benoa',
+    uluwatuCultural: 'Pura Uluwatu & Pengalaman Budaya',
+    gwkShopping: 'Taman Budaya GWK & Belanja',
+    ubudImmersion: 'Pendalaman Budaya Ubud',
+    tamanBejiNature: 'Taman Beji & Eksplorasi Alam',
+    sangehAdventure: 'Petualangan Hutan Monyet Sangeh',
+    atvVillage: 'Petualangan ATV & Kehidupan Desa',
+    penglipuranVillage: 'Desa Tradisional Penglipuran',
+    waterfallZoo: 'Air Terjun Goa Raja & Kebun Binatang Bali',
+    departureDay: 'Hari Keberangkatan',
+    tegalalangArrival: 'Kedatangan & Terasering Tegalalang',
+    ubudCulturalExp: 'Pengalaman Pusat Budaya Ubud',
+    sangehZoo: 'Petualangan Sangeh & Kebun Binatang Bali',
+    tanjungBenoaWater: 'Olahraga Air Tanjung Benoa',
+    uluwatuSunset: 'Pura Uluwatu & Matahari Terbenam',
+    gwkSpa: 'Taman Budaya GWK & Spa',
+    
+    // Tip
+    optionalTip: 'Tip opsional: $3 per orang untuk mendukung pemandu lokal dan staf'
   }
 };
 
@@ -211,5 +284,8 @@ export const useLanguage = () => {
   if (context === undefined) {
     throw new Error('useLanguage must be used within a LanguageProvider');
   }
-  return context;
+  return {
+    ...context,
+    language: context.language
+  };
 };
