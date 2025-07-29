@@ -186,7 +186,7 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
             language === 'en' ? "Jungle exploration" : "Eksplorasi hutan",
             language === 'en' ? "Visit Bali Zoo in Kuta" : "Kunjungi Kebun Binatang Bali di Kuta",
             language === 'en' ? "Animal encounters and shows" : "Bertemu hewan dan pertunjukan",
-            language === 'en' ? "Makan malam perpisahan" : "Farewell dinner"
+            language === 'en' ? "Farewell dinner" : "Makan malam perpisahan"
           ]
         },
         {
@@ -205,7 +205,7 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
     },
     {
       id: 2,
-      name: "Inselharmonie",
+      name: "Bali Inselharmonie",
       duration: "7 Days 6 Nights",
       rating: 4.8,
       images: [
