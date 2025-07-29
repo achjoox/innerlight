@@ -49,7 +49,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
         <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center">
           <div>
             <h2 className="text-2xl font-bold text-gray-900">{t('bookPackage')} {pkg.name}</h2>
-            <p className="text-gray-600">{pkg.duration} • ${pkg.price} {t('perCouple')}</p>
+            <p className="text-gray-600">{pkg.duration} • ${pkg.price} {t('/ pax')}</p>
           </div>
           <button 
             onClick={onClose}
@@ -139,34 +139,6 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
                     required
                   />
-                </div>
-              </div>
-
-              <div className="border-t pt-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-4">{t('partnerInformation')}</h4>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">{t('partnerFirstName')}</label>
-                    <input
-                      type="text"
-                      name="partnerFirstName"
-                      value={formData.partnerFirstName}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">{t('partnerLastName')}</label>
-                    <input
-                      type="text"
-                      name="partnerLastName"
-                      value={formData.partnerLastName}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                      required
-                    />
-                  </div>
                 </div>
               </div>
             </div>
@@ -283,10 +255,6 @@ const BookingModal: React.FC<BookingModalProps> = ({ package: pkg, onClose }) =>
                   <div className="flex justify-between">
                     <span>{t('price')}: ${pkg.price}</span>
                     <span>Duration: {pkg.duration}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>{t('guests')}: {t('people')}</span>
-                    <span></span>
                   </div>
                   <div className="border-t pt-2 flex justify-between font-semibold">
                     <span>{t('totalAmount')}</span>

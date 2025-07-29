@@ -25,7 +25,7 @@ const translations = {
     exclusivePackages: 'Exclusive Couple Packages',
     packagesDescription: 'Carefully curated experiences designed for couples seeking romance, adventure, and cultural immersion in beautiful Bali.',
     duration: 'Duration',
-    people: '2 People',
+    people: 'People',
     chooseExperience: 'Choose Your Experience',
     economy: 'Economy',
     standard: 'Standard',

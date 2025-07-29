@@ -7,7 +7,7 @@ interface PackageProps {
 }
 
 const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const packages = [
     {
@@ -15,7 +15,7 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
       name: "Island Tapestry",
       duration: "10 Days 9 Nights",
       rating: 4.9,
-      image: "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/13334227/pexels-photo-13334227.jpeg",
       tiers: [
         {
           name: t('economy'),
@@ -200,7 +200,7 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
       name: "Inselharmoni",
       duration: "7 Days 6 Nights",
       rating: 4.8,
-      image: "https://images.pexels.com/photos/2474631/pexels-photo-2474631.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/32162991/pexels-photo-32162991.jpeg",
       tiers: [
         {
           name: t('economy'),
@@ -386,10 +386,6 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
                       <Clock className="h-5 w-5" />
                       <span className="text-sm">{pkg.duration}</span>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <Users className="h-5 w-5" />
-                      <span className="text-sm">{t('people')}</span>
-                    </div>
                   </div>
                 </div>
 
@@ -411,7 +407,7 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
                           {tier.icon && <span className="text-emerald-600">{tier.icon}</span>}
                         </div>
                         <div className="text-sm font-medium text-gray-900">{tier.name}</div>
-                        <div className="text-lg font-bold text-emerald-600">${tier.price}</div>
+                        <div className="text-lg font-bold text-emerald-600">${tier.price} / Pax</div>
                       </button>
                     ))}
                   </div>
