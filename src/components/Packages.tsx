@@ -205,7 +205,7 @@ const Packages: React.FC<PackageProps> = ({ onBookNow }) => {
     },
     {
       id: 2,
-      name: "Inselharmoni",
+      name: "Inselharmonie",
       duration: "7 Days 6 Nights",
       rating: 4.8,
       images: [
